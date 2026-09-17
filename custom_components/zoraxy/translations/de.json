@@ -1,0 +1,242 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Mit Zoraxy verbinden",
+        "description": "Gib die Verbindungsdaten deiner Zoraxy-Instanz ein. Verwende dieselben Zugangsdaten wie für die Zoraxy-Weboberfläche.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "username": "Benutzername",
+          "password": "Passwort",
+          "ssl": "Verwendet ein SSL-Zertifikat",
+          "verify_ssl": "SSL-Zertifikat überprüfen"
+        }
+      },
+      "reconfigure": {
+        "title": "Zoraxy-Verbindung aktualisieren",
+        "description": "Aktualisiere die Verbindungsdaten deiner Zoraxy-Instanz.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "username": "Benutzername",
+          "password": "Passwort",
+          "ssl": "Verwendet ein SSL-Zertifikat",
+          "verify_ssl": "SSL-Zertifikat überprüfen"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Erneut bei Zoraxy anmelden",
+        "description": "Die Zugangsdaten für {host} sind nicht mehr gültig. Gib die aktuellen Zugangsdaten ein.",
+        "data": {
+          "username": "Benutzername",
+          "password": "Passwort"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung fehlgeschlagen. Prüfe Host, Port und SSL-Einstellungen.",
+      "invalid_auth": "Ungültiger Benutzername oder ungültiges Passwort.",
+      "unknown": "Unerwarteter Fehler, Details im Home-Assistant-Log."
+    },
+    "abort": {
+      "already_configured": "Diese Zoraxy-Instanz ist bereits konfiguriert.",
+      "reauth_successful": "Die erneute Anmeldung war erfolgreich.",
+      "wrong_instance": "Die Zugangsdaten gehören zu einer anderen Zoraxy-Instanz."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Zoraxy-Optionen",
+        "data": {
+          "scan_interval": "Aktualisierungsintervall (Sekunden)"
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "proxy_rule_enable_failed": {
+      "message": "Proxy-Regel {host_key} konnte nicht aktiviert werden: {error}"
+    },
+    "proxy_rule_disable_failed": {
+      "message": "Proxy-Regel {host_key} konnte nicht deaktiviert werden: {error}"
+    },
+    "switch_enable_failed": {
+      "message": "{name} konnte nicht aktiviert werden: {error}"
+    },
+    "switch_disable_failed": {
+      "message": "{name} konnte nicht deaktiviert werden: {error}"
+    },
+    "cert_no_longer_exists": {
+      "message": "Zertifikat {filename} existiert nicht mehr in Zoraxy"
+    },
+    "cert_renewal_failed": {
+      "message": "Erneuerung des Zertifikats für {domain} fehlgeschlagen: {error}"
+    },
+    "feature_unavailable": {
+      "message": "{name} ist derzeit nicht verfügbar"
+    },
+    "config_entry_not_found": {
+      "message": "Keine Zoraxy-Instanz für Config-Entry {config_entry_id} gefunden"
+    },
+    "config_entry_not_loaded": {
+      "message": "Die Zoraxy-Instanz für Config-Entry {config_entry_id} ist nicht geladen"
+    },
+    "ban_ip_failed": {
+      "message": "{ip_address} konnte nicht zur Blacklist hinzugefügt werden: {error}"
+    },
+    "unban_ip_failed": {
+      "message": "{ip_address} konnte nicht von der Blacklist entfernt werden: {error}"
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "running": {
+        "name": "Läuft"
+      },
+      "online": {
+        "name": "Upstream online"
+      },
+      "cert_expiring_soon": {
+        "name": "Zertifikat {domain} läuft bald ab"
+      }
+    },
+    "button": {
+      "renew_cert": {
+        "name": "Zertifikat {domain} erneuern"
+      }
+    },
+    "sensor": {
+      "proxy_hosts": {
+        "name": "Proxy-Hosts"
+      },
+      "active_proxy_hosts": {
+        "name": "Aktive Proxy-Hosts"
+      },
+      "proxy_server_port": {
+        "name": "Reverse-Proxy-Server-Port"
+      },
+      "total_requests_today": {
+        "name": "Anfragen heute"
+      },
+      "valid_requests_today": {
+        "name": "Gültige Anfragen heute"
+      },
+      "error_requests_today": {
+        "name": "Fehlerhafte Anfragen heute"
+      },
+      "blacklisted_ips": {
+        "name": "Gesperrte IPs"
+      },
+      "blacklisted_countries": {
+        "name": "Gesperrte Länder"
+      },
+      "whitelisted_ips": {
+        "name": "Erlaubte IPs"
+      },
+      "whitelisted_countries": {
+        "name": "Erlaubte Länder"
+      },
+      "quickban_entries": {
+        "name": "Quick-Ban-Kandidaten"
+      },
+      "static_web_server_port": {
+        "name": "Port des statischen Webservers"
+      },
+      "latency": {
+        "name": "Upstream-Latenz"
+      },
+      "cert_expiry": {
+        "name": "Ablauf Zertifikat {domain}"
+      },
+      "host_requests_today": {
+        "name": "Anfragen heute"
+      },
+      "cpu_usage": {
+        "name": "Host-CPU-Auslastung"
+      },
+      "ram_usage": {
+        "name": "Host-RAM-Auslastung"
+      },
+      "disk_usage": {
+        "name": "Host-Festplattenauslastung"
+      },
+      "expired_domains": {
+        "name": "Abgelaufene Zertifikate"
+      }
+    },
+    "switch": {
+      "proxy_rule": {
+        "name": "Proxy-Regel"
+      },
+      "proxy_server": {
+        "name": "Reverse-Proxy-Server"
+      },
+      "https_redirect": {
+        "name": "HTTPS-Umleitung erzwingen"
+      },
+      "port80": {
+        "name": "Port-80-Listener"
+      },
+      "blacklist_enabled": {
+        "name": "Blacklist"
+      },
+      "whitelist_enabled": {
+        "name": "Whitelist"
+      },
+      "whitelist_allow_local": {
+        "name": "Whitelist erlaubt lokale Adressen"
+      },
+      "trust_proxy_headers_only": {
+        "name": "Nur Proxy-Headern vertrauen"
+      },
+      "static_web_server": {
+        "name": "Statischer Webserver"
+      },
+      "static_web_server_dir_listing": {
+        "name": "Verzeichnisauflistung (statischer Webserver)"
+      },
+      "stream_proxy": {
+        "name": "Stream-Proxy-Regel"
+      },
+      "auto_renew": {
+        "name": "ACME-Auto-Renew"
+      }
+    }
+  },
+  "services": {
+    "ban_ip": {
+      "name": "IP-Adresse sperren",
+      "description": "Fügt eine IP-Adresse zur Blacklist einer Zoraxy-Instanz hinzu.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Zoraxy-Instanz",
+          "description": "Die Zoraxy-Instanz, auf der die IP-Adresse gesperrt werden soll."
+        },
+        "ip_address": {
+          "name": "IP-Adresse",
+          "description": "Die IP-Adresse, die zur Blacklist hinzugefügt werden soll."
+        },
+        "comment": {
+          "name": "Kommentar",
+          "description": "Optionale Notiz, die zusammen mit dem Blacklist-Eintrag gespeichert wird."
+        }
+      }
+    },
+    "unban_ip": {
+      "name": "IP-Adresse entsperren",
+      "description": "Entfernt eine IP-Adresse von der Blacklist einer Zoraxy-Instanz.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Zoraxy-Instanz",
+          "description": "Die Zoraxy-Instanz, auf der die IP-Adresse entsperrt werden soll."
+        },
+        "ip_address": {
+          "name": "IP-Adresse",
+          "description": "Die IP-Adresse, die von der Blacklist entfernt werden soll."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "W",   # pycodestyle warnings
+    "I",   # isort (import sorting)
+    "UP",  # pyupgrade (modern syntax)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["custom_components.zoraxy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.mypy]
+python_version = "3.11"
+# homeassistant itself is not installed for this lightweight lint job, so
+# treat it (and any other third-party import) as untyped instead of failing
+# on missing stubs. Full type-checking against real Home Assistant types
+# runs separately — see mypy-strict.ini and the "Mypy (strict)" CI job.
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+check_untyped_defs = true
+no_implicit_optional = true

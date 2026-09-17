@@ -1,0 +1,106 @@
+{
+  "entity": {
+    "sensor": {
+      "proxy_hosts": {
+        "default": "mdi:server-network"
+      },
+      "active_proxy_hosts": {
+        "default": "mdi:server-network"
+      },
+      "proxy_server_port": {
+        "default": "mdi:lan"
+      },
+      "total_requests_today": {
+        "default": "mdi:counter"
+      },
+      "valid_requests_today": {
+        "default": "mdi:check-network-outline"
+      },
+      "error_requests_today": {
+        "default": "mdi:close-network-outline"
+      },
+      "latency": {
+        "default": "mdi:timer-outline"
+      },
+      "host_requests_today": {
+        "default": "mdi:counter"
+      },
+      "cert_expiry": {
+        "default": "mdi:certificate"
+      },
+      "blacklisted_ips": {
+        "default": "mdi:account-cancel-outline"
+      },
+      "blacklisted_countries": {
+        "default": "mdi:earth-off"
+      },
+      "whitelisted_ips": {
+        "default": "mdi:account-check-outline"
+      },
+      "whitelisted_countries": {
+        "default": "mdi:earth"
+      },
+      "quickban_entries": {
+        "default": "mdi:shield-search"
+      },
+      "static_web_server_port": {
+        "default": "mdi:web"
+      },
+      "cpu_usage": {
+        "default": "mdi:cpu-64-bit"
+      },
+      "ram_usage": {
+        "default": "mdi:memory"
+      },
+      "disk_usage": {
+        "default": "mdi:harddisk"
+      },
+      "expired_domains": {
+        "default": "mdi:certificate-outline"
+      }
+    },
+    "switch": {
+      "proxy_rule": {
+        "default": "mdi:swap-horizontal"
+      },
+      "proxy_server": {
+        "default": "mdi:server-network"
+      },
+      "https_redirect": {
+        "default": "mdi:lock-check-outline"
+      },
+      "port80": {
+        "default": "mdi:ethernet"
+      },
+      "blacklist_enabled": {
+        "default": "mdi:account-cancel-outline"
+      },
+      "whitelist_enabled": {
+        "default": "mdi:account-check-outline"
+      },
+      "whitelist_allow_local": {
+        "default": "mdi:home-account"
+      },
+      "trust_proxy_headers_only": {
+        "default": "mdi:shield-check-outline"
+      },
+      "static_web_server": {
+        "default": "mdi:web"
+      },
+      "static_web_server_dir_listing": {
+        "default": "mdi:folder-eye-outline"
+      },
+      "stream_proxy": {
+        "default": "mdi:transit-connection-variant"
+      },
+      "auto_renew": {
+        "default": "mdi:autorenew"
+      }
+    },
+    "button": {
+      "renew_cert": {
+        "default": "mdi:certificate-outline"
+      }
+    }
+  }
+}

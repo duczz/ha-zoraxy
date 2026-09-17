@@ -1,0 +1,71 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 4 * * 1"
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install ruff and mypy
+        run: pip install ruff mypy
+      - name: Ruff
+        run: ruff check .
+      - name: Mypy
+        run: mypy custom_components/zoraxy
+
+  mypy-strict:
+    name: Mypy (strict, real HA types)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          # Current homeassistant declares Requires-Python >=3.14.2; a lower
+          # version here would fail to install it at all. Bump alongside
+          # mypy-strict.ini's python_version if/when HA raises its floor.
+          python-version: "3.14"
+      - name: Install mypy and Home Assistant
+        run: pip install mypy homeassistant Babel
+      - name: Mypy (strict)
+        run: mypy --config-file mypy-strict.ini custom_components/zoraxy
+
+  pytest:
+    name: Pytest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          # pytest-homeassistant-custom-component pulls in real homeassistant,
+          # which declares Requires-Python >=3.14.2 — see mypy-strict's note.
+          python-version: "3.14"
+      - name: Install test dependencies
+        run: pip install pytest-homeassistant-custom-component pytest-cov Babel
+      - name: Pytest
+        run: pytest tests/ --cov=custom_components.zoraxy --cov-report=term-missing
+
+  hassfest:
+    name: Hassfest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: home-assistant/actions/hassfest@master
+
+  hacs:
+    name: HACS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hacs/action@main
+        with:
+          category: integration

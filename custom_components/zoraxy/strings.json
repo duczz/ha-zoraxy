@@ -1,0 +1,242 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Zoraxy",
+        "description": "Enter the connection details of your Zoraxy instance. Use the same credentials as for the Zoraxy web interface.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "username": "Username",
+          "password": "Password",
+          "ssl": "Uses an SSL certificate",
+          "verify_ssl": "Verify SSL certificate"
+        }
+      },
+      "reconfigure": {
+        "title": "Update Zoraxy connection",
+        "description": "Update the connection details of your Zoraxy instance.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "username": "Username",
+          "password": "Password",
+          "ssl": "Uses an SSL certificate",
+          "verify_ssl": "Verify SSL certificate"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate with Zoraxy",
+        "description": "The credentials for {host} are no longer valid. Enter the current credentials.",
+        "data": {
+          "username": "Username",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect. Check host, port and SSL settings.",
+      "invalid_auth": "Invalid username or password.",
+      "unknown": "Unexpected error, see the Home Assistant log for details."
+    },
+    "abort": {
+      "already_configured": "This Zoraxy instance is already configured.",
+      "reauth_successful": "Re-authentication was successful.",
+      "wrong_instance": "The credentials belong to a different Zoraxy instance."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Zoraxy options",
+        "data": {
+          "scan_interval": "Update interval (seconds)"
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "proxy_rule_enable_failed": {
+      "message": "Could not enable proxy rule {host_key}: {error}"
+    },
+    "proxy_rule_disable_failed": {
+      "message": "Could not disable proxy rule {host_key}: {error}"
+    },
+    "switch_enable_failed": {
+      "message": "Could not enable {name}: {error}"
+    },
+    "switch_disable_failed": {
+      "message": "Could not disable {name}: {error}"
+    },
+    "cert_no_longer_exists": {
+      "message": "Certificate {filename} no longer exists in Zoraxy"
+    },
+    "cert_renewal_failed": {
+      "message": "Certificate renewal for {domain} failed: {error}"
+    },
+    "feature_unavailable": {
+      "message": "{name} is not available right now"
+    },
+    "config_entry_not_found": {
+      "message": "No Zoraxy instance found for config entry {config_entry_id}"
+    },
+    "config_entry_not_loaded": {
+      "message": "The Zoraxy instance for config entry {config_entry_id} is not loaded"
+    },
+    "ban_ip_failed": {
+      "message": "Could not add {ip_address} to the blacklist: {error}"
+    },
+    "unban_ip_failed": {
+      "message": "Could not remove {ip_address} from the blacklist: {error}"
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "running": {
+        "name": "Running"
+      },
+      "online": {
+        "name": "Upstream online"
+      },
+      "cert_expiring_soon": {
+        "name": "Certificate {domain} expiring soon"
+      }
+    },
+    "button": {
+      "renew_cert": {
+        "name": "Renew certificate {domain}"
+      }
+    },
+    "sensor": {
+      "proxy_hosts": {
+        "name": "Proxy hosts"
+      },
+      "active_proxy_hosts": {
+        "name": "Active proxy hosts"
+      },
+      "proxy_server_port": {
+        "name": "Reverse proxy server port"
+      },
+      "total_requests_today": {
+        "name": "Requests today"
+      },
+      "valid_requests_today": {
+        "name": "Valid requests today"
+      },
+      "error_requests_today": {
+        "name": "Error requests today"
+      },
+      "blacklisted_ips": {
+        "name": "Blacklisted IPs"
+      },
+      "blacklisted_countries": {
+        "name": "Blacklisted countries"
+      },
+      "whitelisted_ips": {
+        "name": "Whitelisted IPs"
+      },
+      "whitelisted_countries": {
+        "name": "Whitelisted countries"
+      },
+      "quickban_entries": {
+        "name": "Quick ban candidates"
+      },
+      "static_web_server_port": {
+        "name": "Static web server port"
+      },
+      "latency": {
+        "name": "Upstream latency"
+      },
+      "cert_expiry": {
+        "name": "Certificate {domain} expiry"
+      },
+      "host_requests_today": {
+        "name": "Requests today"
+      },
+      "cpu_usage": {
+        "name": "Host CPU usage"
+      },
+      "ram_usage": {
+        "name": "Host RAM usage"
+      },
+      "disk_usage": {
+        "name": "Host disk usage"
+      },
+      "expired_domains": {
+        "name": "Expired certificates"
+      }
+    },
+    "switch": {
+      "proxy_rule": {
+        "name": "Proxy rule"
+      },
+      "proxy_server": {
+        "name": "Reverse proxy server"
+      },
+      "https_redirect": {
+        "name": "Force HTTPS redirect"
+      },
+      "port80": {
+        "name": "Port 80 listener"
+      },
+      "blacklist_enabled": {
+        "name": "Blacklist"
+      },
+      "whitelist_enabled": {
+        "name": "Whitelist"
+      },
+      "whitelist_allow_local": {
+        "name": "Whitelist allows local/loopback"
+      },
+      "trust_proxy_headers_only": {
+        "name": "Trust proxy headers only"
+      },
+      "static_web_server": {
+        "name": "Static web server"
+      },
+      "static_web_server_dir_listing": {
+        "name": "Static web server directory listing"
+      },
+      "stream_proxy": {
+        "name": "Stream proxy rule"
+      },
+      "auto_renew": {
+        "name": "ACME auto-renew"
+      }
+    }
+  },
+  "services": {
+    "ban_ip": {
+      "name": "Ban IP address",
+      "description": "Adds an IP address to a Zoraxy instance's blacklist.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Zoraxy instance",
+          "description": "The Zoraxy instance to ban the IP address on."
+        },
+        "ip_address": {
+          "name": "IP address",
+          "description": "The IP address to add to the blacklist."
+        },
+        "comment": {
+          "name": "Comment",
+          "description": "Optional note stored alongside the blacklist entry."
+        }
+      }
+    },
+    "unban_ip": {
+      "name": "Unban IP address",
+      "description": "Removes an IP address from a Zoraxy instance's blacklist.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Zoraxy instance",
+          "description": "The Zoraxy instance to unban the IP address on."
+        },
+        "ip_address": {
+          "name": "IP address",
+          "description": "The IP address to remove from the blacklist."
+        }
+      }
+    }
+  }
+}

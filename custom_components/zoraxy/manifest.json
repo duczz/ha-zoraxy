@@ -1,0 +1,12 @@
+{
+  "domain": "zoraxy",
+  "name": "Zoraxy",
+  "codeowners": ["@duczz"],
+  "config_flow": true,
+  "documentation": "https://github.com/duczz/ha-zoraxy",
+  "integration_type": "hub",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/duczz/ha-zoraxy/issues",
+  "requirements": ["Babel>=2.10.0"],
+  "version": "0.1.0"
+}

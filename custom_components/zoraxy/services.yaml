@@ -1,0 +1,28 @@
+ban_ip:
+  fields:
+    config_entry_id:
+      required: true
+      selector:
+        config_entry:
+          integration: zoraxy
+    ip_address:
+      required: true
+      example: "203.0.113.42"
+      selector:
+        text:
+    comment:
+      example: "Repeated login failures"
+      selector:
+        text:
+unban_ip:
+  fields:
+    config_entry_id:
+      required: true
+      selector:
+        config_entry:
+          integration: zoraxy
+    ip_address:
+      required: true
+      example: "203.0.113.42"
+      selector:
+        text:

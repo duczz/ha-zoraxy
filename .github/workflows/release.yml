@@ -1,0 +1,25 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  attach-zip:
+    name: Build and attach integration ZIP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build zoraxy.zip
+        run: |
+          cd custom_components/zoraxy
+          zip -r "${{ github.workspace }}/zoraxy.zip" .
+
+      - name: Attach ZIP to release
+        run: gh release upload "${{ github.event.release.tag_name }}" zoraxy.zip
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
